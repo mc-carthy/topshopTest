@@ -19,33 +19,35 @@ export const selectFilterOptionColour = () => {
     browser.click(filterColourOption);
 }
 
-export const selectColourBlack = () => {
-    browser.click(filterColourOption + ' > ' + blackColourFilter);
-}
-
 export const applyFilter = () => {
     browser.click(applyFilterButton);
-}
-
-export const filterButtonHas1Filter = () => {
-    var filterText = browser.getText(filterNumberText);
-    expect(filterText).to.equal('(1)', 'Expected text to be ""');
 }
 
 export const returnsProductList = () => {
     browser.$$('a.Product-link').length > 0;
 }
 
-export const selectColourWhite = () => {
-    browser.scroll(filterColourOption + ' > ' + whiteColourFilter);
-    browser.click(filterColourOption + ' > ' + whiteColourFilter);
+export const selectColour = (colour) => {
+    switch (colour.toLowerCase()) {
+        case 'black':
+            browser.click(filterColourOption + ' > ' + blackColourFilter);
+            break;
+        case 'white':
+            browser.scroll(filterColourOption + ' > ' + whiteColourFilter);
+            browser.click(filterColourOption + ' > ' + whiteColourFilter);
+            break;
+    }
 }
 
 export const clearFilters = () => {
     browser.click(clearFilterButton);
 }
 
-export const filterButtonHas0Filter = () => {
+export const filterButtonCheck = (filterNumber) => {
     var filterText = browser.getText(filterNumberText);
-    expect(filterText).to.equal('', 'Expected text to be ""');
+    if (filterNumber == 1) {
+        expect(filterText).to.equal('(1)', 'Expected text to be ""');
+    } else if (filterNumber == 'no') {
+        expect(filterText).to.equal('', 'Expected text to be ""');
+    }
 }
