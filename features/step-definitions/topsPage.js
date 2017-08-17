@@ -11,4 +11,6 @@ module.exports = function () {
     
     this.Given(/^I select colour 'White'$/, topsPage.selectColourWhite);
 
+    this.Given(/^I clear all filters$/, topsPage.clearFilters);
+    this.Then(/^Filter button has no filters$/, topsPage.filterButtonHas0Filter);
 }
