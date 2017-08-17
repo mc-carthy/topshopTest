@@ -45,9 +45,9 @@ export const clearFilters = () => {
 
 export const filterButtonCheck = (filterNumber) => {
     var filterText = browser.getText(filterNumberText);
-    if (filterNumber == 1) {
-        expect(filterText).to.equal('(1)', 'Expected text to be ""');
-    } else if (filterNumber == 'no') {
+    if (filterNumber == 'no') {
         expect(filterText).to.equal('', 'Expected text to be ""');
+    } else {
+        expect(filterText).to.equal('(' + filterNumber + ')', 'Expected text to be ""');
     }
 }
