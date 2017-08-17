@@ -26,3 +26,9 @@ export const filterButtonHas1Filter = () => {
 export const returnsProductList = () => {
     browser.$$('a.Product-link').length > 0;
 }
+
+export const selectColourWhite = () => {
+    var whiteFilter = '#root > div > div.Main-body.is-notScrollable > div.Main-inner > div > div > div.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > button:nth-child(15) > span.ValueOption-label';
+    browser.scroll(whiteFilter);
+    browser.click(whiteFilter);
+}
