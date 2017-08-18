@@ -16,6 +16,7 @@ export const clickFilterButton = () => {
 }
 
 export const selectFilterOptionColour = () => {
+    browser.scroll(filterColourOption);    
     browser.click(filterColourOption);
 }
 
@@ -30,6 +31,7 @@ export const returnsProductList = () => {
 export const selectColour = (colour) => {
     switch (colour.toLowerCase()) {
         case 'black':
+            browser.scroll(filterColourOption + ' > ' + blackColourFilter);
             browser.click(filterColourOption + ' > ' + blackColourFilter);
             break;
         case 'white':
